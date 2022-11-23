@@ -1,0 +1,112 @@
+#include<iostream>
+using namespace std;
+
+class str
+{
+    string name;
+    int len;
+
+    public:
+
+    void input()
+    {
+        cout << "\n Enter your string:";
+        cin >> name;
+    }
+
+    void freq()
+    {
+        char f;
+        int counter=0;
+        cout << "\nEnter the character for frequecy:";
+        cin >> f;
+
+        len = name.length();
+
+        for(int i=0;i<len;i++)
+        {
+            if( f == name[i])
+            counter++;
+        }
+
+        cout << "\nFrequency of character is " << counter << endl;
+    }
+
+    void chardelete()
+    {
+        char x;
+        cout << "\n\nEnter character to be deleted:\n";
+        cin >> x;
+        
+        int len = name.length();
+
+        for(int i=0;i<len;i++)
+        {
+            if( x == name[i])
+            {
+                
+
+                for(int j=i;j<len;j++)
+                {
+                    name[j] = name[j+1];
+                }
+                break;
+
+            }
+            
+        }
+        cout << "\n\nString after character deletion:" << name;
+    }
+
+    void palindrome()
+    {
+        int len = name.length(); 
+        bool check = true;  
+
+        for(int i=0;i<len;i++)
+        {
+            if(name[i] != name[len-1-i])
+            {
+                check = false;
+            }
+        }
+
+        if(check == true)
+        cout << "\nThe String is Palindrome.\n";
+        else
+        cout << "\nThe String is Not Palindrome.\n";
+    }
+
+    void chartwodel()
+    {
+        int x,y;
+        int len = name.length();
+        cout << "\n\nEnter index of two chaaracters to be deleted:"<< endl;
+        cin >> x >> y;
+
+        for(int i=x;i<len;i++)
+        {
+            name[i] = name[i+1];
+        }
+
+        for(int i=y;i<len;i++)
+        {
+            name[i] = name[i+1];
+        }
+
+        cout << "\nThe string after deletion of two characters:" << name;
+
+
+    }
+}s;
+
+int main()
+{
+    s.input();
+    s.freq();
+    s.chartwodel();
+    s.chardelete();
+    s.palindrome();
+    
+    return 0;
+}
